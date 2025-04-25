@@ -15,17 +15,14 @@
         "groups": [
           {
             "group": "Get Started",
-            "pages": ["introduction", "development", "ecommerce"]
+            "pages": ["introduction", "ecommerce", "vendor navbar", "footer"]
           },
           {
-            "group": "Essentials",
+            "group": "Website",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
+              "website/website pages",
+              "website/page template",
+              "website/website appearance"
             ]
           }
         ]
