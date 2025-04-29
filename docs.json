@@ -18,11 +18,20 @@
             "pages": ["introduction", "ecommerce", "vendor navbar", "footer"]
           },
           {
-            "group": "Website",
+            "group": "Vendor Website",
             "pages": [
               "website/website pages",
               "website/page template",
               "website/website appearance"
+            ]
+          },
+          {
+            "group": "Customer Portal",
+            "pages": [
+              "customer/dashboard",
+              "customer/profile",
+              "customer/Order",
+              "customer-portal/can-id"
             ]
           }
         ]
