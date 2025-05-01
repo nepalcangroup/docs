@@ -32,7 +32,8 @@
               "customer/profile",
               "customer/order",
               "customer/Vendor Order",
-              "customer-portal/can-id"
+              "customer/marketplace",
+              "customer/can id"
             ]
           }
         ]
