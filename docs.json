@@ -31,7 +31,7 @@
               "customer/dashboard",
               "customer/profile",
               "customer/order",
-              "customer/Vendor Order",
+              "customer/vendor order",
               "customer/marketplace",
               "customer/can id"
             ]
