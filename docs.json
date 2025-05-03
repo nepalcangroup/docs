@@ -1,11 +1,9 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "linden",
-  "name": "Nepal CAN Logistics",
+  "name": "Nepal CAN",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#16A34A"
   },
   "favicon": "/favicon.svg",
   "navigation": {
@@ -19,21 +17,17 @@
           },
           {
             "group": "Vendor Website",
-            "pages": [
-              "website/website pages",
-              "website/page template",
-              "website/website appearance"
-            ]
+            "pages": ["website-pages", "page-template", "website-appearance"]
           },
           {
             "group": "Customer Portal",
             "pages": [
-              "customer/dashboard",
-              "customer/profile",
-              "customer/order",
-              "customer/vendor order",
-              "customer/marketplace",
-              "customer/can id"
+              "dashboard",
+              "profile",
+              "order",
+              "vendor-order",
+              "marketplace",
+              "can-id"
             ]
           }
         ]
@@ -43,10 +37,7 @@
       "anchors": []
     }
   },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
+
   "navbar": {
     "links": []
   },
