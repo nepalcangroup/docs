@@ -13,12 +13,17 @@
         "groups": [
           {
             "group": "Get Started",
-            "pages": ["introduction", "ecommerce", "vendor navbar", "footer"]
+            "pages": ["introduction", "ecommerce", "vendor-navbar", "footer"]
           },
           {
             "group": "Vendor Website",
-            "pages": ["website-pages", "page-template", "website-appearance"]
+            "pages": [
+              "vendor website/website-pages",
+              "vendor website/page-template",
+              "vendor website/website-appearance"
+            ]
           },
+
           {
             "group": "Customer Portal",
             "pages": [
@@ -28,6 +33,17 @@
               "vendor-order",
               "marketplace",
               "can-id"
+            ]
+          },
+          {
+            "group": "Contractor",
+            "pages": [
+              "contractordashboard",
+              "deliveryAssignment",
+              "pickup",
+              "delivery",
+              "my-detail",
+              "serviceprofile"
             ]
           }
         ]
