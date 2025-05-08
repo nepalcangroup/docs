@@ -18,32 +18,32 @@
           {
             "group": "Vendor Website",
             "pages": [
-              "vendor website/website-pages",
-              "vendor website/page-template",
-              "vendor website/website-appearance"
+              "vendor-website/website-pages",
+              "vendor-website/page-template",
+              "vendor-website/website-appearance"
             ]
           },
 
           {
             "group": "Customer Portal",
             "pages": [
-              "dashboard",
-              "profile",
-              "order",
-              "vendor-order",
-              "marketplace",
-              "can-id"
+              "customer-portal/dashboard",
+              "customer-portal/profile",
+              "customer-portal/order",
+              "customer-portal/vendor-order",
+              "customer-portal/marketplace",
+              "customer-portal/can-id"
             ]
           },
           {
             "group": "Contractor",
             "pages": [
-              "contractordashboard",
-              "deliveryAssignment",
-              "pickup",
-              "delivery",
-              "my-detail",
-              "serviceprofile"
+              "contractor-portal/contractordashboard",
+              "contractor-portal/delivery-Assignment",
+              "contractor-portal/pickup",
+              "contractor-portal/delivery",
+              "contractor-portal/my-detail",
+              "contractor-portal/serviceprofile"
             ]
           }
         ]
