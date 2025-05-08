@@ -39,7 +39,7 @@
             "group": "Contractor",
             "pages": [
               "contractor-portal/contractordashboard",
-              "contractor-portal/delivery-Assignment",
+              "contractor-portal/delivery-assignment",
               "contractor-portal/pickup",
               "contractor-portal/delivery",
               "contractor-portal/my-detail",
