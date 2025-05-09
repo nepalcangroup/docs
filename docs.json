@@ -1,11 +1,10 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "linden",
-  "name": "Nepal CAN",
+  "name": "Nepal Can",
   "colors": {
-    "primary": "#16A34A"
+    "primary": "#DC2626"
   },
-  "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
@@ -23,7 +22,6 @@
               "vendor-website/website-appearance"
             ]
           },
-
           {
             "group": "Customer Portal",
             "pages": [
@@ -62,7 +60,6 @@
       "anchors": []
     }
   },
-
   "navbar": {
     "links": []
   },
