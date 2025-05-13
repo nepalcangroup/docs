@@ -46,7 +46,11 @@
           },
           {
             "group": "Register",
-            "pages": ["register/customer-signin", "register/vendor-signin"]
+            "pages": [
+              "register/customer-signin",
+              "register/vendor-signin",
+              "register/profile"
+            ]
           }
         ]
       },
