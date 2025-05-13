@@ -43,6 +43,10 @@
               "contractor-portal/my-detail",
               "contractor-portal/serviceprofile"
             ]
+          },
+          {
+            "group": "Register",
+            "pages": ["register/customer-signin", "register/vendor-signin"]
           }
         ]
       },
@@ -50,8 +54,7 @@
         "tab": "API Reference",
         "groups": [
           {
-            "group": "API Documentation",
-            "pages": ["api-reference/introduction"]
+            "pages": ["api-reference/customersign"]
           }
         ]
       }
