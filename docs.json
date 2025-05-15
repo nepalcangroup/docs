@@ -52,6 +52,10 @@
               "register/profile",
               "register/forgot-password"
             ]
+          },
+          {
+            "group": "Main App",
+            "pages": ["main-app/dashboard", "main-app/branch"]
           }
         ]
       },
