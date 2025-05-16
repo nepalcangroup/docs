@@ -55,7 +55,14 @@
           },
           {
             "group": "Main App",
-            "pages": ["main-app/dashboard", "main-app/branch"]
+            "pages": [
+              "main-app/dashboard",
+              "main-app/branch",
+              "main-app/customer",
+              "main-app/vendor",
+              "main-app/filearchives",
+              "main-app/contractor"
+            ]
           }
         ]
       },
