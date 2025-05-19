@@ -62,7 +62,9 @@
               "main-app/vendor",
               "main-app/filearchives",
               "main-app/contractor",
-              "main-app/order-service"
+              "main-app/order-service",
+              "main-app/warehouse",
+              "main-app/announcement"
             ]
           }
         ]
