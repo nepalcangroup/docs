@@ -47,10 +47,10 @@
           {
             "group": "Register",
             "pages": [
-              "register/customer-signin",
-              "register/vendor-signin",
+              "register/customersignin",
+              "register/vendorsignin",
               "register/profile",
-              "register/forgot-password"
+              "register/forgotpassword"
             ]
           },
           {
