@@ -66,6 +66,15 @@
               "main-app/warehouse",
               "main-app/announcement"
             ]
+          },
+
+          {
+            "group": "Settings",
+            "pages": [
+              "settings/setup",
+              "settings/organization",
+              "settings/Communication"
+            ]
           }
         ]
       },
