@@ -12,11 +12,14 @@
         "groups": [
           {
             "group": "Get Started",
-            "pages": ["introduction", "ecommerce", "vendor-navbar", "footer"]
+            "pages": ["introduction"]
           },
           {
             "group": "Vendor Website",
             "pages": [
+              "vendor-website/ecommerce",
+              "vendor-website/vendor-navbar",
+              "vendor-website/footer",
               "vendor-website/website-pages",
               "vendor-website/page-template",
               "vendor-website/website-appearance",
@@ -55,17 +58,17 @@
             ]
           },
           {
-            "group": "Main App",
+            "group": "Logistic System",
             "pages": [
-              "main-app/dashboard",
-              "main-app/branch",
-              "main-app/customer",
-              "main-app/vendor",
-              "main-app/filearchives",
-              "main-app/contractor",
-              "main-app/order-service",
-              "main-app/warehouse",
-              "main-app/announcement"
+              "logistic-system/dashboard",
+              "logistic-system/branch",
+              "logistic-system/customer",
+              "logistic-system/vendor",
+              "logistic-system/filearchives",
+              "logistic-system/contractor",
+              "logistic-system/order-service",
+              "logistic-system/warehouse",
+              "logistic-system/announcement"
             ]
           },
 
