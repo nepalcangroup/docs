@@ -1,0 +1,439 @@
+# Logistics API Documentation
+
+## Overview
+
+The Logistics API allows vendors to manage orders and retrieve branch information securely using token-based authentication and JSON data.
+
+- **Base URL**: `https://your-api-domain.com`
+- **API Version**: `v1`
+
+---
+
+## 🔐 Authentication
+
+### API Credentials
+
+Each vendor receives:
+
+- **API Key**: Unique account identifier
+- **Secret Key**: Private key for secure access
+
+### Token Generation
+
+Before making API calls, generate an access token.
+
+**Endpoint:** `POST /v1/token`
+
+**Headers:**
+
+```http
+Content-Type: application/json
+```
+
+**Request Body:**
+
+```json
+{
+  "apiKey": "your_api_key_here",
+  "secretKey": "your_secret_key_here"
+}
+```
+
+**Response:**
+
+```json
+{
+  "success": true,
+  "data": {
+    "token": "your_generated_token",
+    "expiresIn": 3600000,
+    "tokenType": "Bearer"
+  }
+}
+```
+
+### Using the Token
+
+Add the token to the `Authorization` header:
+
+```http
+Authorization: Bearer youraccesstokenhere
+```
+
+---
+
+## Orders
+
+### Get Orders List
+
+Retrieve a paginated list of orders.
+
+**Endpoint:** `GET /v1/orders`
+
+**Headers:**
+
+```http
+Authorization: Bearer youraccesstokenhere
+Content-Type: application/json
+```
+
+**Query Parameters:**
+
+- `page` (optional): Page number (default: 1)
+- `limit` (optional): Items per page (default: 20, max: 100)
+- `status` (optional): Filter by status (`pending`, `confirmed`, `in_transit`, `delivered`, `cancelled`)
+- `fromDate` (optional): Filter start date (`YYYY-MM-DD`)
+- `toDate` (optional): Filter end date (`YYYY-MM-DD`)
+
+**Example:**
+
+```http
+GET /v1/orders?page=1&limit=10&status=pending
+```
+
+**Response:**
+
+```json
+{
+  "success": true,
+  "data": {
+    "orders": [
+      {
+        "orderId": "ORD00112234",
+        "providerCode": "CANLOGISTICS",
+        "fromBranch": "TINK0001",
+        "toBranch": "BTWL0001",
+        "receiver": "Ram Prasad Sharma",
+        "phone": "9988221144330099311",
+        "address": "Baneshwor",
+        "codCharge": 2000,
+        "status": "pending",
+        "createdAt": "2025-06-11T08:30:00Z",
+        "updatedAt": "2025-06-11T08:30:00Z"
+      }
+    ],
+    "pagination": {
+      "currentPage": 1,
+      "totalPages": 5,
+      "totalOrders": 47,
+      "hasNext": true,
+      "hasPrev": false
+    }
+  }
+}
+```
+
+---
+
+### Create New Order
+
+**Endpoint:** `POST /v1/order`
+
+**Headers:**
+
+```http
+Authorization: Bearer youraccesstokenhere
+Content-Type: application/json
+```
+
+**Request Body:**
+
+```json
+{
+  "providerCode": "CANLOGISTICS",
+  "fromBranch": "TINK0001",
+  "toBranch": "BTWL0001",
+  "receiver": "Ram Prasad Sharma",
+  "phone": "9988221144330099311",
+  "address": "Baneshwor",
+  "codCharge": 2000
+}
+```
+
+**Response:**
+
+```json
+{
+  "success": true,
+  "data": {
+    "orderId": "ORD0012235",
+    "status": "pending",
+    "createdAt": "2025-06-11T09:15:00Z",
+    "updatedAt": "2025-06-11T09:15:00Z"
+  },
+  "message": "Order created successfully"
+}
+```
+
+### Add Comment to Order
+
+`POST /v1/orders/:orderId/comments`
+
+Add a new text comment to a specific order.
+
+#### 🧾 Path Parameters
+
+| Name      | Type   | Description        |
+| --------- | ------ | ------------------ |
+| `orderId` | string | Unique ID of order |
+
+#### Request Body
+
+````json
+{
+  "content": "This is text comment"
+}
+{
+  "success": true,
+  "message": "Note added successfully",
+  "data": {
+    "content": "This is text comment 2",
+    "createdAt": "2025-06-19T10:01:59.216Z"
+  }
+}
+ Read Order Comments
+| Name    | Type   | Description                         |
+| ------- | ------ | ----------------------------------- |
+| `page`  | number | Page number (optional)              |
+| `limit` | number | Number of items per page (optional) |
+{
+  "success": true,
+  "data": {
+    "notes": [
+      {
+        "content": "This is text comment 2",
+        "createdAt": "2025-06-19T10:01:59.216Z",
+        "updatedAt": "2025-06-19T10:01:59.216Z",
+        "createdBy": "Do not Delete"
+      },
+      {
+        "content": "This is text comment 2",
+        "createdAt": "2025-06-18T06:44:12.182Z",
+        "updatedAt": "2025-06-18T06:44:12.182Z",
+        "createdBy": "Do not Delete"
+      },
+      {
+        "content": "Order #HLJU9317CQ77 was created with deliveryStatus 'Order Created', pricingMethod 'Administrative",
+        "createdAt": "2025-06-16T11:59:46.010Z",
+        "updatedAt": "2025-06-16T11:59:46.010Z",
+        "createdBy": "Do not Delete"
+      }
+    ],
+    "totalNotes": 3
+  }
+}
+
+###  Get Order Details
+
+**Endpoint:** `GET /v1/order/:orderId`
+
+**Headers:**
+
+```http
+Authorization: Bearer youraccesstokenhere
+Content-Type: application/json
+````
+
+**Example:**
+
+```http
+GET /v1/order/ORD00112234
+```
+
+**Response:**
+
+```json
+{
+  "success": true,
+  "data": {
+    "orderId": "ORD00112234",
+    "providerCode": "CANLOGISTICS",
+    "fromBranch": "TINK0001",
+    "toBranch": "BTWL0001",
+    "receiver": "Ram Prasad Sharma",
+    "phone": "9988221144330099311",
+    "address": "Baneshwor",
+    "codCharge": 2000,
+    "status": "in_transit",
+    "trackingHistory": [
+      {
+        "status": "pending",
+        "timestamp": "2025-06-11T08:30:00Z",
+        "location": "TINK0001"
+      },
+      {
+        "status": "confirmed",
+        "timestamp": "2025-06-11T09:00:00Z",
+        "location": "TINK0001"
+      },
+      {
+        "status": "in_transit",
+        "timestamp": "2025-06-11T10:30:00Z",
+        "location": "TINK0001"
+      }
+    ],
+    "createdAt": "2025-06-11T08:30:00Z",
+    "updatedAt": "2025-06-11T10:30:00Z"
+  }
+}
+```
+
+---
+
+## Branches
+
+### Get Provider Branches
+
+**Endpoint:** `GET /v1/branches/:providerId`
+
+**Headers:**
+
+```http
+Authorization: Bearer youraccesstokenhere
+Content-Type: application/json
+```
+
+**Query Parameters:**
+
+- `active` (optional): `true` or `false`
+- `search` (optional): Search by branch name, city, district, address
+
+**Example:**
+
+```http
+GET /v1/branches/CANLOGISTICS?active=true
+```
+
+**Response:**
+
+```json
+{
+  "success": true,
+  "data": {
+    "providerId": "CANLOGISTICS",
+    "providerName": "CAN Logistics",
+    "branches": [
+      {
+        "branchId": "TINK0001",
+        "branchName": "Tinkune Branch",
+        "city": "Kathmandu",
+        "address": "Tinkune, Kathmandu",
+        "phone": "011-441223456",
+        "email": "tinkune@canlogistics.com",
+        "isActive": true,
+        "services": ["delivery", "pickup", "cod"]
+      },
+      {
+        "branchId": "BTWL0001",
+        "branchName": "Butwal Branch",
+        "city": "Butwal",
+        "address": "Traffic Chowk, Butwal",
+        "phone": "071-123456",
+        "email": "butwal@canlogistics.com",
+        "isActive": true,
+        "services": ["delivery", "pickup", "cod"]
+      }
+    ],
+    "totalBranches": 2
+  }
+}
+```
+
+### Get Branch Details
+
+**Endpoint:** `GET /v1/branch/:providerId/:branchId`
+
+**Response:**
+
+```json
+{
+  "success": true,
+  "data": {
+    "branchId": "TINK0001",
+    "branchName": "Tinkune Branch",
+    "providerId": "CANLOGISTICS",
+    "providerName": "CAN Logistics",
+    "city": "Kathmandu",
+    "address": "Tinkune, Kathmandu",
+    "phone": "011-441223456",
+    "email": "tinkune@canlogistics.com",
+    "coordinates": {
+      "latitude": 27.6767,
+      "longitude": 85.3475
+    },
+    "workingHours": {
+      "monday": "09:00-18:00",
+      "saturday": "09:00-16:00",
+      "sunday": "closed"
+    },
+    "services": ["delivery", "pickup", "cod"],
+    "isActive": true,
+    "createdAt": "2025-01-15T10:00:00Z",
+    "updatedAt": "2025-06-01T14:30:00Z"
+  }
+}
+```
+
+---
+
+## Error Handling
+
+**Error Format:**
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "INVALID_REQUEST",
+    "message": "Validation failed",
+    "details": {
+      "phone": ["Phone number is required"],
+      "codCharge": ["COD charge must be greater than 0"]
+    }
+  }
+}
+```
+
+**Common Error Codes:**
+
+| HTTP Status | Error Code      | Description               |
+| ----------- | --------------- | ------------------------- |
+| 400         | INVALID_REQUEST | Request validation failed |
+| 401         | UNAUTHORIZED    | Invalid or missing token  |
+| 403         | FORBIDDEN       | Insufficient permissions  |
+| 404         | NOT_FOUND       | Resource not found        |
+| 409         | CONFLICT        | Resource conflict         |
+| 429         | RATE_LIMITED    | Too many requests         |
+| 500         | INTERNAL_ERROR  | Server error              |
+
+---
+
+## Rate Limiting
+
+- **Rate Limit**: 1000 requests per hour per API key
+- **Burst Limit**: 50 requests per minute
+
+**Headers Returned:**
+
+- `X-RateLimit-Limit`: Max requests per hour
+- `X-RateLimit-Remaining`: Remaining requests in current window
+- `X-RateLimit-Reset`: Reset time (Unix timestamp)
+
+---
+
+## 🛠 Support
+
+- Email: [api-support@logistics.com](mailto:api-support@logistics.com)
+- Docs: [https://docs.logistics.com](https://docs.logistics.com)
+- Status: [https://status.logistics.com](https://status.logistics.com)
+
+---
+
+## Changelog
+
+### Version 1.0.0
+
+- Initial API release
+- Order management endpoints
+- Branch information endpoints
+- Token-based authentication

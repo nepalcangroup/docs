@@ -23,7 +23,13 @@
               "vendor-website/website-pages",
               "vendor-website/page-template",
               "vendor-website/website-appearance",
-              "vendor-website/documentation/api-endpoints"
+              "vendor-website/category",
+
+              "vendor-website/product",
+              "vendor-website/coupon",
+
+              "vendor-website/documentation/api-endpoints",
+              "vendor-website/documentation/api"
             ]
           },
           {
