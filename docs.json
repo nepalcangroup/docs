@@ -27,6 +27,7 @@
 
               "vendor-website/product",
               "vendor-website/coupon",
+              "vendor-website/shop-order",
 
               "vendor-website/documentation/api-endpoints",
               "vendor-website/documentation/api"
