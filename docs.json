@@ -29,8 +29,7 @@
               "vendor-website/coupon",
               "vendor-website/shop-order",
 
-              "vendor-website/documentation/api-endpoints",
-              "vendor-website/documentation/api"
+              "vendor-website/documentation/api-endpoints"
             ]
           },
           {
@@ -91,9 +90,11 @@
       },
       {
         "tab": "API Reference",
+        "defaultPage": "vendor-website/documentation/api",
         "groups": [
           {
-            "pages": ["api-reference/customersign"]
+            "group": "API Reference",
+            "pages": ["vendor-website/documentation/api"]
           }
         ]
       }
